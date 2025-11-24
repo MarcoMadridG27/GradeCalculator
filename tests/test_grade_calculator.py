@@ -80,16 +80,29 @@ class TestGradeCalculator(unittest.TestCase):
         result = self.calculator.calculate(evals, True, False)
         self.assertEqual(result['final_grade'], 0.0)
 
-    def test_invalid_evaluation_creation(self):
-        """Validar que el modelo Evaluation rechace valores inválidos."""
+    def test_zero_total_weight_error(self):
+        """Debe lanzar error si el peso total es 0 (caso defensivo)."""
+        # Creamos un objeto mock o "fake" que salte la validación de Evaluation
+        class FakeEvaluation:
+            def __init__(self):
+                self.grade = 10
+                self.weight = 0
+        
+        evals = [FakeEvaluation()]
         with self.assertRaises(ValueError):
-            Evaluation(-1, 50)
-        with self.assertRaises(ValueError):
-            Evaluation(21, 50)
-        with self.assertRaises(ValueError):
-            Evaluation(15, 0)
-        with self.assertRaises(ValueError):
-            Evaluation(15, 101)
+            self.calculator.calculate(evals, True, False)
+
+    def test_negative_final_grade_clamping(self):
+        """Asegurar que la nota final no sea negativa (caso defensivo)."""
+        # Forzamos una penalización enorme mockeando la política de asistencia
+        from unittest.mock import MagicMock
+        self.calculator.attendance_policy.calculate_penalty = MagicMock(return_value=100.0)
+        
+        evals = [Evaluation(10, 100)]
+        result = self.calculator.calculate(evals, has_reached_minimum_classes=False, all_years_teachers=False)
+        
+        self.assertEqual(result['final_grade'], 0.0)
+        self.assertEqual(result['penalty'], 100.0)
 
 if __name__ == '__main__':
     unittest.main()

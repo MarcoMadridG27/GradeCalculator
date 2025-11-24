@@ -13,6 +13,19 @@ Sistema de cálculo de notas finales para el curso CS3081, diseñado para cumpli
   - Pesos entre 0 y 100.
 - **Arquitectura Limpia**: Separación clara entre Modelos, Lógica de Negocio y Constantes.
 
+## 👤 Caso de Uso Principal
+
+### CU0001 – Calcular nota final del estudiante
+**Actor**: Docente UTEC
+
+1. El docente ingresa a la aplicación.
+2. La aplicación solicita los datos del estudiante (código o identificador).
+3. El docente registra o revisa las evaluaciones con sus notas y pesos.
+4. El docente indica si el estudiante alcanzó la asistencia mínima.
+5. La aplicación consulta la política de puntos extra (lista `allYearsTeachers`).
+6. La aplicación calcula la nota final.
+7. La aplicación muestra la nota final y el detalle del cálculo.
+
 ## 🚀 Requisitos
 
 - Python 3.10 o superior.
