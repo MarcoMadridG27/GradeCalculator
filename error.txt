@@ -1,0 +1,15 @@
+Run sonarsource/sonarqube-scan-action@master
+Warning: Running this GitHub Action without SONAR_TOKEN is not recommended
+Installing Sonar Scanner CLI 7.3.0.5189 for linux-x64...
+Downloading from: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.3.0.5189-linux-x64.zip
+/usr/bin/unzip -o -q /home/runner/work/_temp/b90ada7a-e88d-49d5-aa3e-9e7a5fc585b4
+Sonar Scanner CLI cached to: /opt/hostedtoolcache/sonar-scanner-cli/7.3.0.5189/linux-x64
+/opt/hostedtoolcache/sonar-scanner-cli/7.3.0.5189/linux-x64/bin/sonar-scanner -Dsonar.projectBaseDir=.
+21:50:30.765 INFO  Scanner configuration file: /opt/hostedtoolcache/sonar-scanner-cli/7.3.0.5189/linux-x64/conf/sonar-scanner.properties
+21:50:30.769 INFO  Project root configuration file: /home/runner/work/GradeCalculator/GradeCalculator/sonar-project.properties
+21:50:30.784 INFO  SonarScanner CLI 7.3.0.5189
+21:50:30.786 INFO  Linux 6.11.0-1018-azure amd64
+21:50:31.509 ERROR Failed to query server version: Expected URL scheme 'http' or 'https' but no scheme was found for /api/v...
+21:50:31.510 INFO  EXECUTION FAILURE
+21:50:31.511 INFO  Total time: 0.748s
+Error: Action failed: The process '/opt/hostedtoolcache/sonar-scanner-cli/7.3.0.5189/linux-x64/bin/sonar-scanner' failed with exit code 1
