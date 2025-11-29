@@ -2,6 +2,16 @@
 
 Sistema de cálculo de notas finales para el curso CS3081, diseñado para cumplir con estrictos requerimientos funcionales y no funcionales, priorizando la calidad del código y la arquitectura modular.
 
+
+## Resultados de calidad y análisis SonarQube
+
+### Calidad requerida
+![Calidad requerida](quality.png)
+
+### Resultado del alumno en SonarQube
+![Resultado SonarQube](sonnar.png)
+
+
 ## 📋 Características
 
 - **Cálculo de Promedio Ponderado**: Soporta evaluaciones con diferentes pesos.
